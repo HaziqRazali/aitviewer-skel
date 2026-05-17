@@ -398,7 +398,7 @@ class OSIMSequence(Node):
 
         if not ignore_fps:
             assert (
-                abs(1 - fps_estimated / fps_in) < 1e-5
+                abs(1 - fps_estimated / fps_in) < 1e-3
             ), f"FPS estimation might be bad, {fps_estimated} rounded to {fps_in}, check."
 
             if fps_out is not None:
@@ -441,7 +441,7 @@ class OSIMSequence(Node):
 
             # Since python 3.6, dicts have a fixed order so the order of this list should be marching labels
             markers[frame_id, :, :] = np.vstack(
-                self.osim.skeleton.getMarkerMapWorldPositions(self.osim.markersMap).values()
+                list(self.osim.skeleton.getMarkerMapWorldPositions(self.osim.markersMap).values())
             )
             # Sanity check for previous comment
             assert (

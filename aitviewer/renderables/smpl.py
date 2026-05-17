@@ -233,8 +233,9 @@ class SMPLSequence(Node):
 
         i_root_end = 3
         i_body_end = i_root_end + smpl_layer.bm.NUM_BODY_JOINTS * 3
-        i_left_hand_end = i_body_end + smpl_layer.bm.NUM_HAND_JOINTS * 3
-        i_right_hand_end = i_left_hand_end + smpl_layer.bm.NUM_HAND_JOINTS * 3
+        num_hand_joints = getattr(smpl_layer.bm, 'NUM_HAND_JOINTS', 0)
+        i_left_hand_end = i_body_end + num_hand_joints * 3
+        i_right_hand_end = i_left_hand_end + num_hand_joints * 3
 
         return cls(
             poses_body=poses[:, i_root_end:i_body_end],

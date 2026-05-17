@@ -1,9 +1,9 @@
 # Access SMPL models.
-smplx_models: "/is/cluster/fast/mkeller2/Data/body_model/smplx_models" #"/ps/project/rib_cage_breathing/TML/Data/smplx_models"
+smplx_models: "/home/haziq/code/SMPL2AddBiomechanics/models"
 star_models: "../data/star_models"
 supr_models: "../data/supr_models"
-skel_models: "/is/cluster/work/mkeller2/Data/TML/Release/v1.0/skel_models_v1.1"
-osim_geometry : "/is/cluster/work/mkeller2/Data/TML/Release/v1.0/skel_models_v1.1/Geometry"
+skel_models: "/home/haziq/datasets/mocap/data/skel_models_v1.1"
+osim_geometry : "/home/haziq/datasets/mocap/data/skel_models_v1.1/Geometry"
 
 # Access to datasets.
 datasets:

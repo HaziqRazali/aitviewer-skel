@@ -526,6 +526,29 @@ class Viewer(moderngl_window.WindowConfig):
         if duration > 0 and log:
             print("Duration: {0:.2f}s @ {1:.2f} FPS".format(duration, self.window.frames / duration))
 
+    def on_render(self, time, frame_time):
+        """Alias for moderngl_window 3.x compatibility."""
+        return self.render(time, frame_time)
+
+    # moderngl_window 3.x renamed event methods to on_* prefixed versions.
+    def on_key_event(self, key, action, modifiers):
+        return self.key_event(key, action, modifiers)
+
+    def on_mouse_position_event(self, x, y, dx, dy):
+        return self.mouse_position_event(x, y, dx, dy)
+
+    def on_mouse_press_event(self, x, y, button):
+        return self.mouse_press_event(x, y, button)
+
+    def on_mouse_release_event(self, x, y, button):
+        return self.mouse_release_event(x, y, button)
+
+    def on_mouse_drag_event(self, x, y, dx, dy):
+        return self.mouse_drag_event(x, y, dx, dy)
+
+    def on_mouse_scroll_event(self, x_offset, y_offset):
+        return self.mouse_scroll_event(x_offset, y_offset)
+
     def render(self, time, frame_time, export=False, transparent_background=False):
         """The main drawing function."""
 
