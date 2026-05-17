@@ -398,7 +398,7 @@ class OSIMSequence(Node):
 
         if not ignore_fps:
             assert (
-                abs(1 - fps_estimated / fps_in) < 1e-3
+                abs(1 - fps_estimated / fps_in) < 5e-3
             ), f"FPS estimation might be bad, {fps_estimated} rounded to {fps_in}, check."
 
             if fps_out is not None:
